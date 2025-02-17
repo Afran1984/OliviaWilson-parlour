@@ -8,7 +8,7 @@ import "./Banner.css";
 import { Link } from "react-router-dom";
 const Banner = () => {
   return (
-    <div>
+    <div className="pl-8 bg-pink-50">
       <div className="flex flex-col-reverse md:flex-row gap-4">
         <div className="w-full md:w-1/2 flex flex-col justify-center items-center md:items-start space-y-3">
           <h1 className=" text-4xl font-semibold text-center md:text-start font-exo">

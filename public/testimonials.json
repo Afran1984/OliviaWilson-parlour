@@ -1,0 +1,20 @@
+[
+    {
+      "name": "Nash Patrik",
+      "position": "CEO, Manpol",
+      "image": "https://i.ibb.co.com/9nc2jJm/jim.jpg",
+      "review": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Purus commodo ipsum duis laoreet maecenas. Feugiat"
+    },
+    {
+      "name": "Miriam Barron",
+      "position": "CEO, Manpol",
+      "image": "https://i.ibb.co.com/b7x11Cv/jim.jpg",
+      "review": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Purus commodo ipsum duis laoreet maecenas. Feugiat"
+    },
+    {
+      "name": "Bria Malone",
+      "position": "CEO, Manpol",
+      "image": "https://i.ibb.co.com/HpxD3J12/03.jpg",
+      "review": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Purus commodo ipsum duis laoreet maecenas. Feugiat"
+    }
+  ]

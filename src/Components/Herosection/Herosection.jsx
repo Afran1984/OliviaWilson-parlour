@@ -1,12 +1,12 @@
 const Herosection = () => {
     return (
-        <div className="flex flex-col md:flex-row items-center justify-between bg-pink-50 p-8 rounded-xl mt-5">
+        <div className="flex flex-col md:flex-row items-center justify-between bg-pink-50 p-8 mt-5">
       {/* Image Section */}
       <div className="w-full md:w-1/2">
         <img
-          src="https://i.ibb.co.com/ycZyXCCp/images-1.jpg"
+          src="https://i.ibb.co.com/KzDHVTvB/engin-akyurt-g-m8-EDc4-X6-Q-unsplash.jpg"
           alt="Facial Treatment"
-          className="rounded-xl shadow-lg"
+          className="rounded-xl shadow-lg h-80 w-90"
         />
       </div>
       
