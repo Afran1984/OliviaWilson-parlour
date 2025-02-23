@@ -1,5 +1,12 @@
 
 const Navbar = () => {
+
+  const navOption = <>
+    <li><a>HOME</a></li>
+    <li><a>OUR PORTFOLIO</a></li>
+    <li><a>OUR TEAM</a></li>
+    <li><a>CONTACT US</a></li>
+  </>
     return (
         <div>
            <div className="navbar bg-pink-50">
@@ -19,15 +26,15 @@ const Navbar = () => {
                         d="M4 6h16M4 12h8m-8 6h16" />
                     </svg>
                   </div>
+                  <ul tabIndex={0} className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
+                      {navOption}
+                    </ul>
                 </div>
             <a className="btn btn-ghost text-xl px-4 py-2 hover:scale-110 cursor-pointer transition-all rounded-sm text-center "><img className='w-16 h-10 rounded-lg mx-auto ' src="https://i.ibb.co.com/TqMDPSWv/Olivia-Wilson.png" alt="" />Olivia Wilson</a>
           </div>
             <div className="navbar-center hidden lg:flex">
               <ul className="menu menu-horizontal px-1">
-                <li><a>HOME</a></li>
-                <li><a>OUR PORTFOLIO</a></li>
-                <li><a>OUR TEAM</a></li>
-                <li><a>CONTACT US</a></li>
+                {navOption}
               </ul>
             </div>
             <div className="navbar-end">
