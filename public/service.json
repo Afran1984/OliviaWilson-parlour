@@ -1,0 +1,86 @@
+[
+  {
+    "id": 1,
+    "name": "Anti Age Face Treatment",
+    "price": "$300",
+    "description": "We craft stunning and amazing web UI, using a well drafted UX to fit your product.",
+    "image": "https://i.ibb.co.com/whVz7Dy3/freestocks-YGmk9-UZMd-Zg-unsplash.jpg"
+  },
+  {
+    "id": 2,
+    "name": "Hair Color & Styling",
+    "price": "$25",
+    "description": "Amazing flyers, social media posts, and brand representations that would make your brand stand out.",
+    "image": "https://i.ibb.co.com/1f0gjh0s/rosa-rafael-Pe9-IXUu-C6-QU-unsplash.jpg"
+  },
+  {
+    "id": 3,
+    "name": "Skin Care Treatment",
+    "price": "$220",
+    "description": "With well-written codes, we build amazing apps for all platforms, mobile and web apps in general.",
+    "image": "https://i.ibb.co.com/KzDHVTvB/engin-akyurt-g-m8-EDc4-X6-Q-unsplash.jpg"
+  },
+  {
+    "id": 4,
+    "name": "Skin Care Treatment 4",
+    "price": "$99",
+    "description": "With well-written codes, we build amazing apps for all platforms, mobile and web apps in general.",
+    "image": "https://i.ibb.co.com/KzDHVTvB/engin-akyurt-g-m8-EDc4-X6-Q-unsplash.jpg"
+  },
+  {
+    "id": 5,
+    "name": "Skin Care Treatment 5",
+    "price": "$99",
+    "description": "With well-written codes, we build amazing apps for all platforms, mobile and web apps in general.",
+    "image": "https://i.ibb.co.com/KzDHVTvB/engin-akyurt-g-m8-EDc4-X6-Q-unsplash.jpg"
+  },
+  {
+    "id": 6,
+    "name": "Skin Care Treatment 6",
+    "price": "$99",
+    "description": "With well-written codes, we build amazing apps for all platforms, mobile and web apps in general.",
+    "image": "https://i.ibb.co.com/KzDHVTvB/engin-akyurt-g-m8-EDc4-X6-Q-unsplash.jpg"
+  },
+  {
+    "id": 7,
+    "name": "Skin Care Treatment 7",
+    "price": "$99",
+    "description": "With well-written codes, we build amazing apps for all platforms, mobile and web apps in general.",
+    "image": "https://i.ibb.co.com/KzDHVTvB/engin-akyurt-g-m8-EDc4-X6-Q-unsplash.jpg"
+  },
+  {
+    "id": 8,
+    "name": "Skin Care Treatment 8",
+    "price": "$99",
+    "description": "With well-written codes, we build amazing apps for all platforms, mobile and web apps in general.",
+    "image": "https://i.ibb.co.com/KzDHVTvB/engin-akyurt-g-m8-EDc4-X6-Q-unsplash.jpg"
+  },
+  {
+    "id": 9,
+    "name": "Skin Care Treatment 9",
+    "price": "$99",
+    "description": "With well-written codes, we build amazing apps for all platforms, mobile and web apps in general.",
+    "image": "https://i.ibb.co.com/KzDHVTvB/engin-akyurt-g-m8-EDc4-X6-Q-unsplash.jpg"
+  },
+  {
+    "id": 10,
+    "name": "Skin Care Treatment 10",
+    "price": "$99",
+    "description": "With well-written codes, we build amazing apps for all platforms, mobile and web apps in general.",
+    "image": "https://i.ibb.co.com/KzDHVTvB/engin-akyurt-g-m8-EDc4-X6-Q-unsplash.jpg"
+  },
+  {
+    "id": 11,
+    "name": "Skin Care Treatment 11",
+    "price": "$99",
+    "description": "With well-written codes, we build amazing apps for all platforms, mobile and web apps in general.",
+    "image": "https://i.ibb.co.com/KzDHVTvB/engin-akyurt-g-m8-EDc4-X6-Q-unsplash.jpg"
+  },
+  {
+    "id": 12,
+    "name": "Skin Care Treatment 12",
+    "price": "$99",
+    "description": "With well-written codes, we build amazing apps for all platforms, mobile and web apps in general.",
+    "image": "https://i.ibb.co.com/KzDHVTvB/engin-akyurt-g-m8-EDc4-X6-Q-unsplash.jpg"
+  }
+]

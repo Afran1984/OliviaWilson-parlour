@@ -1,31 +1,60 @@
+import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+
 const Services = () => {
+    const [services, setServices] = useState([]);
+    const [loading, setLoading] = useState(true); 
+    const [showAll, setShowAll] = useState(false);
+
+    useEffect(() => {
+        fetch("service.json")
+            .then((res) => res.json())
+            .then((res) => {
+                // const data = res.slice(0, 3);
+                setServices(res); 
+                setLoading(false); // Set loading to false after data is fetched
+            })
+            .catch((error) => {
+                console.error("Error fetching services:", error);
+                setLoading(false); // Ensure loading is false even if there's an error
+            });
+    }, []);
+
+    // Display a loading message while data is being fetched
+    if (loading) {
+        return (
+            <div className="flex justify-center items-center h-screen">
+                <p className="text-2xl font-bold">Loading...</p>
+            </div>
+        );
+    }
+
+    const displayServices = showAll ? services : services.slice(0, 3); 
+
+
+
+    // Display the services once data is fetched
     return (
         <div className="p-8">
-            <h1 className="text-4xl mt-7 text-center font-mono font-bold">Our Awesome <span className=" text-[#F63E7B]">Services</span></h1>
+            <h1 className="text-4xl mt-7 text-center font-mono font-bold">
+                Our Awesome <span className="text-[#F63E7B]">Services</span>
+            </h1>
 
             <div className="grid grid-cols-3 text-center gap-4 mt-10">
-                <div className="px-4 py-6">
-                    <img src="https://i.ibb.co.com/whVz7Dy3/freestocks-YGmk9-UZMd-Zg-unsplash.jpg" alt="" />
-                    <h2 className="font-mono font-bold">Anti Age Face Treatment</h2>
-                    <p className="text-center">$99</p>
-                    <p>We craft stunning and amazing web UI, using a well drrafted UX to fit your product.</p>
-                </div>
-                <div className="shadow-2xl px-4 py-6 rounded-xl">
-                    <img src="https://i.ibb.co.com/1f0gjh0s/rosa-rafael-Pe9-IXUu-C6-QU-unsplash.jpg" alt="" />
-                    <h2 className="font-mono font-bold" >Hair Color & Styleing</h2>
-                    <p className="text-center">$99</p>
-                    <p>Amazing flyers, social media posts and brand representations that would make your brand stand out.</p>
-                </div>
-                <div className="px-4 py-6">
-                    <img src="https://i.ibb.co.com/KzDHVTvB/engin-akyurt-g-m8-EDc4-X6-Q-unsplash.jpg" alt="" />
-                    <h2 className="font-mono font-bold" >Skin Care Treatment</h2>
-                    <p className="text-center">$99</p>
-                    <p>With well written codes, we build amazing apps for all platforms, mobile and web apps in general.</p>
-                </div>
-
+                {displayServices.map((service) => (
+                    <div key={service.id} className="px-4 py-6">
+                        <img src={service.image} alt={service.name} />
+                       <Link ><h2 className="font-mono font-bold">{service.name}</h2></Link> 
+                        <p className="text-center badge badge-secondary">{service.price}</p>
+                        <p>{service.description}</p>
+                    </div>
+                ))}
             </div>
+
             <div className="text-center mt-12">
-                <button className="bg-[#F63E7B] px-4 py-2 hover:scale-110 cursor-pointer transition-all rounded-sm text-white ">Explore more</button>
+                <button className="bg-[#F63E7B] px-4 py-2 hover:scale-110 cursor-pointer transition-all rounded-sm text-white" onClick={()=>setShowAll(!showAll)}>
+                    {showAll ? "Show Less" : "Explore more"}
+                </button>
             </div>
         </div>
     );

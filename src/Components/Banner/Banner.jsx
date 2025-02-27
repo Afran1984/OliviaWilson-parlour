@@ -54,13 +54,13 @@ const Banner = () => {
             className="mySwiper"
           >
             <SwiperSlide>
-              <img src="https://i.ibb.co.com/HpxD3J12/03.jpg" />
+              <img src="https://i.ibb.co.com/rf7wPBbx/me-01.jpg" />
             </SwiperSlide>
             <SwiperSlide>
-              <img src="https://i.ibb.co.com/NgJ9kPrJ/04.jpg" />
+              <img src="https://i.ibb.co.com/LhsbQP5q/me-02.jpg" />
             </SwiperSlide>
             <SwiperSlide>
-              <img src="https://i.ibb.co.com/60rmQq6G/01.jpg" />
+              <img src="https://i.ibb.co.com/hR3Bd1K0/me-03.jpg" />
             </SwiperSlide>
           </Swiper>
         </div>

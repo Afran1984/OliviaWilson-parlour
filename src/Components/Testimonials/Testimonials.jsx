@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 
 const Testimonials = () => {
     const [testimonial, setTestimonial] = useState([]);
-    console.log(testimonial);
+    // console.log(testimonial);
 
     useEffect(()=>{
         fetch("/testimonials.json")
