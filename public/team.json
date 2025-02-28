@@ -1,0 +1,87 @@
+[
+    {
+      "id": 1,
+      "name": "Alice Johnson",
+      "image": "https://i.ibb.co.com/9nc2jJm/jim.jpg",
+      "position": "Makeup Artist",
+      "service": "Bridal Makeup"
+    },
+    {
+      "id": 2,
+      "name": "Bob Smith",
+      "image": "https://i.ibb.co.com/9nc2jJm/jim.jpg",
+      "position": "Makeup Artist",
+      "service": "Editorial Makeup"
+    },
+    {
+      "id": 3,
+      "name": "Catherine Brown",
+      "image": "https://i.ibb.co.com/HpxD3J12/03.jpg",
+      "position": "Makeup Artist",
+      "service": "Special Effects Makeup"
+    },
+    {
+      "id": 4,
+      "name": "David Wilson",
+      "image": "https://i.ibb.co.com/9nc2jJm/jim.jpg",
+      "position": "Makeup Artist",
+      "service": "Fashion Makeup"
+    },
+    {
+      "id": 5,
+      "name": "Emily Davis",
+      "image": "https://i.ibb.co.com/HpxD3J12/03.jpg",
+      "position": "Makeup Artist",
+      "service": "Airbrush Makeup"
+    },
+    {
+      "id": 6,
+      "name": "Frank Martinez",
+      "image": "https://i.ibb.co.com/9nc2jJm/jim.jpg",
+      "position": "Makeup Artist",
+      "service": "Theatrical Makeup"
+    },
+    {
+      "id": 7,
+      "name": "Grace Lee",
+      "image": "https://i.ibb.co.com/HpxD3J12/03.jpg",
+      "position": "Makeup Artist",
+      "service": "Celebrity Makeup"
+    },
+    {
+      "id": 8,
+      "name": "Henry Garcia",
+      "image": "https://i.ibb.co.com/9nc2jJm/jim.jpg",
+      "position": "Makeup Artist",
+      "service": "Photoshoot Makeup"
+    },
+    {
+      "id": 9,
+      "name": "Isabella Rodriguez",
+      "image": "https://i.ibb.co.com/9nc2jJm/jim.jpg",
+      "position": "Makeup Artist",
+      "service": "Runway Makeup"
+    },
+    {
+      "id": 10,
+      "name": "Jack Taylor",
+      "image": "https://i.ibb.co.com/HpxD3J12/03.jpg",
+      "position": "Makeup Artist",
+      "service": "Prosthetic Makeup"
+    },
+    {
+      "id": 11,
+      "name": "Karen White",
+      "image": "https://i.ibb.co.com/9nc2jJm/jim.jpg",
+      "position": "Makeup Artist",
+      "service": "Natural Makeup"
+    },
+    {
+      "id": 12,
+      "name": "Leo Harris",
+      "image": "https://i.ibb.co.com/HpxD3J12/03.jpg",
+      "position": "Makeup Artist",
+      "service": "Glamour Makeup"
+    }
+]
+  

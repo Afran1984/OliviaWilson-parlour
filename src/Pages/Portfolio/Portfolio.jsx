@@ -1,36 +1,91 @@
-import React from 'react';
+import { useState, useEffect } from 'react';
 
 const Portfolio = () => {
+  const [isLoading, setIsLoading] = useState(true);
+
+  // Simulate a loading delay (e.g., fetching data)
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoading(false); // Set loading to false after 2 seconds
+    }, 2000);
+
+    return () => clearTimeout(timer); // Cleanup the timer
+  }, []);
+
+  if (isLoading) {
     return (
-        <div className="p-8">
-            <h1 className="text-4xl mt-7 text-center font-mono font-bold">Our Awesome <span className=" text-[#F63E7B]">Services</span></h1>
-
-            <div className="grid grid-cols-3 text-center gap-4 mt-10">
-                <div className="px-4 py-6">
-                    <img src="https://i.ibb.co.com/whVz7Dy3/freestocks-YGmk9-UZMd-Zg-unsplash.jpg" alt="" />
-                    <h2 className="font-mono font-bold">Anti Age Face Treatment</h2>
-                    <p className="text-center">$99</p>
-                    <p>We craft stunning and amazing web UI, using a well drrafted UX to fit your product.</p>
-                </div>
-                <div className="shadow-2xl px-4 py-6 rounded-xl">
-                    <img src="https://i.ibb.co.com/1f0gjh0s/rosa-rafael-Pe9-IXUu-C6-QU-unsplash.jpg" alt="" />
-                    <h2 className="font-mono font-bold" >Hair Color & Styleing</h2>
-                    <p className="text-center">$99</p>
-                    <p>Amazing flyers, social media posts and brand representations that would make your brand stand out.</p>
-                </div>
-                <div className="px-4 py-6">
-                    <img src="https://i.ibb.co.com/KzDHVTvB/engin-akyurt-g-m8-EDc4-X6-Q-unsplash.jpg" alt="" />
-                    <h2 className="font-mono font-bold" >Skin Care Treatment</h2>
-                    <p className="text-center">$99</p>
-                    <p>With well written codes, we build amazing apps for all platforms, mobile and web apps in general.</p>
-                </div>
-
-            </div>
-            <div className="text-center mt-12">
-                <button className="bg-[#F63E7B] px-4 py-2 hover:scale-110 cursor-pointer transition-all rounded-sm text-white ">Explore more</button>
-            </div>
-        </div>
+      <div className='min-h-screen bg-white flex justify-center items-center'>
+        <div className='animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-purple-800'></div>
+        <p className='ml-4 text-purple-800'>Loading...</p>
+      </div>
     );
+  }
+
+  return (
+    <div className='min-h-screen bg-white p-8'>
+      <div className='max-w-6xl mx-auto'>
+        {/* 1st */}
+        <div className='flex flex-col md:flex-row justify-between items-center mt-4'>
+          <div className='md:w-1/2'>
+            <h1 className='text-4xl font-bold text-purple-800 mb-4'>Makeup Artist</h1>
+            <h2 className='text-xl text-gray-600'>Online Classes</h2>
+            <p className='text-gray-500 mt-4 mb-6'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut.</p>
+            <button className='bg-pink-400 text-white py-2 px-6 rounded-lg hover:bg-pink-500 transition'>Read More</button>
+            <div className='flex space-x-4 mt-6'>
+              <i className='fab fa-instagram text-2xl text-gray-600'></i>
+              <i className='fab fa-twitter text-2xl text-gray-600'></i>
+              <i className='fab fa-whatsapp text-2xl text-gray-600'></i>
+              <i className='fab fa-youtube text-2xl text-gray-600'></i>
+            </div>
+          </div>
+          <div className='md:w-1/2 mt-8 md:mt-0 relative'>
+            <div className='absolute -top-10 -right-10 bg-red-300 text-white p-4 rounded-full'>Balance & Beauty</div>
+            <img src='https://i.ibb.co.com/KzDHVTvB/engin-akyurt-g-m8-EDc4-X6-Q-unsplash.jpg' alt='Makeup Artist' className='rounded-full shadow-lg' />
+            <div className='absolute bottom-4 right-4 bg-purple-300 text-white py-2 px-4 rounded-full'>Best Makeup Tips</div>
+          </div>
+        </div>
+        {/* 2nd */}
+        <div className='flex flex-col md:flex-row justify-between items-center mt-4'>
+          <div className='md:w-1/2 mt-8 md:mt-0 relative'>
+            <img src='https://i.ibb.co.com/KzDHVTvB/engin-akyurt-g-m8-EDc4-X6-Q-unsplash.jpg' alt='Makeup Artist' className='rounded-full shadow-lg' />
+            <div className='absolute bottom-4 right-4 bg-purple-300 text-white py-2 px-4 rounded-full'>Best Makeup Tips</div>
+          </div>
+
+          <div className='md:w-1/2'>
+            <h1 className='text-4xl font-bold text-purple-800 mb-4'>Makeup Artist</h1>
+            <h2 className='text-xl text-gray-600'>Online Classes</h2>
+            <p className='text-gray-500 mt-4 mb-6'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut.</p>
+            <button className='bg-pink-400 text-white py-2 px-6 rounded-lg hover:bg-pink-500 transition'>Read More</button>
+            <div className='flex space-x-4 mt-6'>
+              <i className='fab fa-instagram text-2xl text-gray-600'></i>
+              <i className='fab fa-twitter text-2xl text-gray-600'></i>
+              <i className='fab fa-whatsapp text-2xl text-gray-600'></i>
+              <i className='fab fa-youtube text-2xl text-gray-600'></i>
+            </div>
+          </div>
+        </div>
+        {/* 3rd */}
+        <div className='flex flex-col md:flex-row justify-between items-center mt-4'>
+          <div className='md:w-1/2'>
+            <h1 className='text-4xl font-bold text-purple-800 mb-4'>Makeup Artist</h1>
+            <h2 className='text-xl text-gray-600'>Online Classes</h2>
+            <p className='text-gray-500 mt-4 mb-6'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut.</p>
+            <button className='bg-pink-400 text-white py-2 px-6 rounded-lg hover:bg-pink-500 transition'>Read More</button>
+            <div className='flex space-x-4 mt-6'>
+              <i className='fab fa-instagram text-2xl text-gray-600'></i>
+              <i className='fab fa-twitter text-2xl text-gray-600'></i>
+              <i className='fab fa-whatsapp text-2xl text-gray-600'></i>
+              <i className='fab fa-youtube text-2xl text-gray-600'></i>
+            </div>
+          </div>
+          <div className='md:w-1/2 mt-8 md:mt-0 relative'>
+            <img src='https://i.ibb.co.com/KzDHVTvB/engin-akyurt-g-m8-EDc4-X6-Q-unsplash.jpg' alt='Makeup Artist' className='rounded-full shadow-lg' />
+            <div className='absolute bottom-4 right-4 bg-purple-300 text-white py-2 px-4 rounded-full'>Best Makeup Tips</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
 };
 
 export default Portfolio;

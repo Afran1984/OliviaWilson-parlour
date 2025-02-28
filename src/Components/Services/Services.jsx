@@ -23,10 +23,11 @@ const Services = () => {
     // Display a loading message while data is being fetched
     if (loading) {
         return (
-            <div className="flex justify-center items-center h-screen">
-                <p className="text-2xl font-bold">Loading...</p>
+            <div className='min-h-screen bg-white flex justify-center items-center'>
+              <div className='animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-purple-800'></div>
+              <p className='ml-4 text-purple-800'>Loading...</p>
             </div>
-        );
+          );
     }
 
     const displayServices = showAll ? services : services.slice(0, 3); 

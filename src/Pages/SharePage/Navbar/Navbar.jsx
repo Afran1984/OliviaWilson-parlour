@@ -4,8 +4,8 @@ const Navbar = () => {
   const navOption = <>
     <li><Link to="/">HOME</Link></li>
     <li><Link to="/portfolio">OUR PORTFOLIO</Link></li>
-    <li><a>OUR TEAM</a></li>
-    <li><a>CONTACT US</a></li>
+    <li><Link to="/ourteam">OUR TEAM</Link></li>
+    <li><Link to="/contact">CONTACT US</Link></li>
   </>
     return (
         <>
