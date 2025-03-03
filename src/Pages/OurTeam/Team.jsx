@@ -8,7 +8,7 @@ const Team = () => {
     console.log(teams);
 
     useEffect(() => {
-        fetch('team.json')
+        fetch('http://localhost:5000/teammember')
         .then((res) => res.json())
         .then(res => {
             setTeams(res);
