@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { Helmet } from 'react-helmet-async';
 
 const Portfolio = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -23,6 +24,9 @@ const Portfolio = () => {
 
   return (
     <div className='min-h-screen bg-white p-8'>
+            <Helmet>
+              <title>Olivia | Portfolio</title>
+            </Helmet>
       <div className='max-w-6xl mx-auto'>
         {/* 1st */}
         <div className='flex flex-col md:flex-row justify-between items-center mt-4'>

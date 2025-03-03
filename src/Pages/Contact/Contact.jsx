@@ -1,16 +1,29 @@
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import emailjs from '@emailjs/browser';
 import { Typewriter } from "react-simple-typewriter";
+import { Helmet } from 'react-helmet-async';
+
 
 
 const Contact = () => {
   const form = useRef();
   const [successMessage, setSuccessMessage] = useState('');
-  const [loading, setLoading] = useState(false); // Initialize loading as false
+  const [loadings, setLoadings] = useState(false); // Initialize loading as false
+
+  const [isLoading, setIsLoading] = useState(true);
+  
+    // Simulate a loading delay (e.g., fetching data)
+    useEffect(() => {
+      const timer = setTimeout(() => {
+        setIsLoading(false); // Set loading to false after 2 seconds
+      }, 2000);
+  
+      return () => clearTimeout(timer); // Cleanup the timer
+    }, []);
 
   const sendEmail = (e) => {
     e.preventDefault();
-    setLoading(true); // Set loading to true when the email is being sent
+    setLoadings(true); // Set loading to true when the email is being sent
 
     emailjs
       .sendForm('service_lp92t6h', 'template_7ud6628', form.current, {
@@ -28,12 +41,25 @@ const Contact = () => {
         }
       )
       .finally(() => {
-        setLoading(false); // Reset loading to false after the email is sent (success or failure)
+        setLoadings(false); // Reset loading to false after the email is sent (success or failure)
       });
   };
+  
+  if (isLoading) {
+    return (
+      <div className='min-h-screen bg-white flex justify-center items-center'>
+        <div className='animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-purple-800'></div>
+        <p className='ml-4 text-purple-800'>Loading...</p>
+      </div>
+    );
+  }
+
 
   return (
     <div>
+      <Helmet>
+        <title>Olivia | Contact</title>
+      </Helmet>
         <div className='grid grid-cols-2 justify-center'>
             <div className="text-center mt-32">
                 <h1 className='text-2xl font-mono'>
@@ -79,9 +105,9 @@ const Contact = () => {
                     <button
                     type="submit"
                     className="bg-[#F63E7B] px-4 py-2 hover:scale-110 cursor-pointer transition-all rounded-sm text-white relative"
-                    disabled={loading} // Disable the button while loading
+                    disabled={loadings} // Disable the button while loading
                     >
-                    {loading ? (
+                    {loadings ? (
                         <div className="flex items-center justify-center">
                         <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white"></div>
                         <span className="ml-2">Sending...</span>

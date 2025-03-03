@@ -7,7 +7,7 @@ const Services = () => {
     const [showAll, setShowAll] = useState(false);
 
     useEffect(() => {
-        fetch("service.json")
+        fetch("http://localhost:5000/services")
             .then((res) => res.json())
             .then((res) => {
                 // const data = res.slice(0, 3);
