@@ -6,6 +6,8 @@ import Home from "../Pages/Home/Home";
 import Portfolio from "../Pages/Portfolio/Portfolio";
 import Team from "../Pages/OurTeam/Team";
 import Contact from "../Pages/Contact/Contact";
+import Login from "../Pages/Login/Login";
+import Registration from "../Pages/Registration/Registration";
 
 
   export const router = createBrowserRouter([
@@ -28,6 +30,14 @@ import Contact from "../Pages/Contact/Contact";
         {
           path: 'contact',
           element: <Contact></Contact>
+        },
+        {
+          path: '/login',
+          element: <Login></Login>
+        },
+        {
+          path: '/registration',
+          element: <Registration></Registration>
         }
       ]
     },
