@@ -1,10 +1,15 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import useAuth from "../hooks/useAuth";
+import axios from "axios";
 
 const Services = () => {
     const [services, setServices] = useState([]);
     const [loading, setLoading] = useState(true); 
     const [showAll, setShowAll] = useState(false);
+    const {user} = useAuth();
+    const navigate = useNavigate();
+    const location = useLocation();
 
     useEffect(() => {
         fetch("http://localhost:5000/services")
@@ -32,20 +37,43 @@ const Services = () => {
 
     const displayServices = showAll ? services : services.slice(0, 3); 
 
+    const handleAddtoCard = order => {
+        console.log(order);
+       if(user && user.email) {
+        // send Order to Data base
+        const orderItem = {
+            menuId: order._id,
+            email: user.email,
+            serviceName: order.name,
+            servicePrice: order.price,
+            serviceImage: order.image
+        }
+        axios.post('http://localhost:5000/userOrder', orderItem)
+        .then(res => {
+            console.log(res.data);
+            // if(res.data.insertedId){
+                
+            // }
+        })
+       }
+       else{
+            navigate('/login', {state: {from: location}})
+       }
+    }
 
 
     // Display the services once data is fetched
     return (
         <div className="p-8">
             <h1 className="text-4xl mt-7 text-center font-mono font-bold">
-                Our Awesome <span className="text-[#F63E7B]">Services</span>
+                Our Awesome <span className="text-[#af5b77]">Services</span>
             </h1>
 
             <div className="grid grid-cols-3 text-center gap-4 mt-10">
                 {displayServices.map((service) => (
                     <div key={service.id} className="px-4 py-6">
                         <img src={service.image} alt={service.name} />
-                       <Link ><h2 className="font-mono font-bold">{service.name}</h2></Link> 
+                       <Link ><h2 onClick={() => handleAddtoCard(service)} className="font-mono font-bold">{service.name}</h2></Link> 
                         <p className="text-center badge badge-secondary">{service.price}</p>
                         <p>{service.description}</p>
                     </div>

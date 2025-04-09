@@ -1,6 +1,8 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { FaFacebook } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
+import { AuthContext } from "../../Provider/AuthProvider";
+import { useNavigate } from "react-router-dom";
 
 
 export default function Registration() {
@@ -10,6 +12,9 @@ export default function Registration() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const {createUser} = useContext(AuthContext);
+  const navigate = useNavigate();
+  
 
 //   Looding
 useEffect(() => {
@@ -21,19 +26,56 @@ useEffect(() => {
 
   const handleRegister = (e) => {
     e.preventDefault();
+  
     if (password !== confirmPassword) {
       alert("Passwords do not match!");
       return;
     }
-    console.log("Registering with:", firstName, lastName, username, password);
-    // reset form
-    e.target.reset();
-    setFirstName("");
-    setLastName("");
-    setUsername("");
-    setPassword("");
-    setConfirmPassword("");
+  
+    createUser(username, password)
+      .then( async (result) => {
+        const loggedUser = result.user;
+        console.log(loggedUser);
+        // alert("Registration Successful");
+        const userData = {
+          firstName,
+          lastName,
+          email: username,
+          uid: loggedUser.uid,
+        };
+
+        try{
+          const response = await fetch("http://localhost:5000/usersInfo", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(userData),
+          });
+          const data = await response.json();
+          if(data.insertedId) {
+            console.log("user has been Saved DB", data);
+          }
+        }catch (error) {
+          console.log("Failed to save DB", error);
+        }
+  
+        // Reset form only after success
+        e.target.reset();
+        setFirstName("");
+        setLastName("");
+        setUsername("");
+        setPassword("");
+        setConfirmPassword("");
+
+        navigate('/');
+      })
+      .catch((error) => {
+        console.error("Registration failed:", error);
+        alert("Registration failed. Please try again.");
+      });
   };
+  
 
 
 //   setLoadding
@@ -59,6 +101,7 @@ if (isLoading) {
             type="text"
             placeholder="First Name"
             value={firstName}
+            name="firstName"
             onChange={(e) => setFirstName(e.target.value)}
             className="w-full p-2 border-b mb-3"
             required
@@ -67,6 +110,7 @@ if (isLoading) {
             type="text"
             placeholder="Last Name"
             value={lastName}
+            name="lastName"
             onChange={(e) => setLastName(e.target.value)}
             className="w-full p-2 border-b mb-3"
             required
@@ -75,6 +119,7 @@ if (isLoading) {
             type="text"
             placeholder="Username or Email"
             value={username}
+            name="email"
             onChange={(e) => setUsername(e.target.value)}
             className="w-full p-2 border-b mb-3"
             required

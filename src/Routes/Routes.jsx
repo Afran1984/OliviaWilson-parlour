@@ -8,6 +8,8 @@ import Team from "../Pages/OurTeam/Team";
 import Contact from "../Pages/Contact/Contact";
 import Login from "../Pages/Login/Login";
 import Registration from "../Pages/Registration/Registration";
+import UsersInfo from "../Pages/UserInfo/UsersInfo/UserInfo"
+import PraivateRoute from "./PraivateRoute";
 
 
   export const router = createBrowserRouter([
@@ -21,15 +23,15 @@ import Registration from "../Pages/Registration/Registration";
         },
         {
           path: 'portfolio',
-          element: <Portfolio></Portfolio>
+          element: <PraivateRoute><Portfolio></Portfolio></PraivateRoute> 
         },
         {
           path: 'ourteam',
-          element: <Team></Team>
+          element: <PraivateRoute><Team></Team></PraivateRoute> 
         },
         {
           path: 'contact',
-          element: <Contact></Contact>
+          element: <PraivateRoute><Contact></Contact></PraivateRoute>
         },
         {
           path: '/login',
@@ -38,6 +40,10 @@ import Registration from "../Pages/Registration/Registration";
         {
           path: '/registration',
           element: <Registration></Registration>
+        },
+        {
+          path: '/profile',
+          element: <PraivateRoute><UsersInfo></UsersInfo></PraivateRoute>
         }
       ]
     },

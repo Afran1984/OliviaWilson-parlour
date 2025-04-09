@@ -1,18 +1,34 @@
 import { FcGoogle } from "react-icons/fc";
 import Logo from "../../../public/image/logo.png";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Typewriter } from "react-simple-typewriter";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { AuthContext } from "../../Provider/AuthProvider";
+
 
 
 const Login = () => {
     const [isLoading, setIsLoading] = useState(true);
     const [email, setUserEmail] = useState("");
     const [password, setUserPassword] = useState("");
+    const navigate = useNavigate();
+    const location = useLocation();
+
+    const from = location.state?.from?.pathname || "/";
+  
+    // firebase sign iN 
+    const {signIn} = useContext(AuthContext);
 
     const handleLogin = (e) =>{
       e.preventDefault();
-      console.log("loging In whit", email, password);
+      // call signIn
+      signIn(email, password)
+      .then(result => {
+        const user = result.user;
+        console.log(user);
+        navigate(from, {replace: true});
+      })
+      // console.log("loging In whit", email, password);
       e.target.reset();
       setUserEmail("");
       setUserPassword("");
