@@ -10,6 +10,12 @@ import Login from "../Pages/Login/Login";
 import Registration from "../Pages/Registration/Registration";
 import UsersInfo from "../Pages/UserInfo/UsersInfo/UserInfo"
 import PraivateRoute from "./PraivateRoute";
+import Appoinmentpage from "../Pages/Appoinment-Page/Appoinmentpage";
+import Dashboard from "../Layout/Dashboard";
+import UserOrder from "../Pages/Dashboard/UserOrder/UserOrder";
+import Book from "../Pages/Dashboard/Book/Book";
+import AppoinmentList from "../Pages/Dashboard/AppoinmentList/AppoinmentList";
+import Review from "../Pages/Dashboard/Review/Review";
 
 
   export const router = createBrowserRouter([
@@ -44,6 +50,33 @@ import PraivateRoute from "./PraivateRoute";
         {
           path: '/profile',
           element: <PraivateRoute><UsersInfo></UsersInfo></PraivateRoute>
+        },
+        {
+          path: '/apoinment',
+          element: <PraivateRoute> <Appoinmentpage> </Appoinmentpage> </PraivateRoute> 
+        }
+      ]
+    },
+    {
+      path: 'dashboard',
+      element: <Dashboard></Dashboard>,
+      children: [
+        {
+          path: 'orderdata',
+          element: <UserOrder></UserOrder>
+
+        },
+        {
+          path: 'book',
+          element: <Book></Book>
+        },
+        {
+          path: 'appoinment',
+          element: <AppoinmentList></AppoinmentList>
+        },
+        {
+          path: 'review',
+          element: <Review></Review>
         }
       ]
     },

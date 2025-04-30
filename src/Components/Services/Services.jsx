@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import useAuth from "../hooks/useAuth";
 import axios from "axios";
+import useOrderCard from "../hooks/useOrderCard";
 
 const Services = () => {
     const [services, setServices] = useState([]);
@@ -10,6 +11,7 @@ const Services = () => {
     const {user} = useAuth();
     const navigate = useNavigate();
     const location = useLocation();
+    const [, refetch] = useOrderCard();
 
     useEffect(() => {
         fetch("http://localhost:5000/services")
@@ -23,17 +25,8 @@ const Services = () => {
                 console.error("Error fetching services:", error);
                 setLoading(false); // Ensure loading is false even if there's an error
             });
-    }, []);
 
-    // Display a loading message while data is being fetched
-    if (loading) {
-        return (
-            <div className='min-h-screen bg-white flex justify-center items-center'>
-              <div className='animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-purple-800'></div>
-              <p className='ml-4 text-purple-800'>Loading...</p>
-            </div>
-          );
-    }
+    }, []);
 
     const displayServices = showAll ? services : services.slice(0, 3); 
 
@@ -51,9 +44,14 @@ const Services = () => {
         axios.post('http://localhost:5000/userOrder', orderItem)
         .then(res => {
             console.log(res.data);
-            // if(res.data.insertedId){
-                
-            // }
+            if(res.data.insertedId){
+                alert('Order placed successfully!');
+                // You could also use a nicer toast notification here
+            } else {
+                alert('Order received but no database confirmation');
+            }
+            refetch();
+
         })
        }
        else{
@@ -61,6 +59,15 @@ const Services = () => {
        }
     }
 
+    // Display a loading message while data is being fetched
+    if (loading) {
+        return (
+            <div className='min-h-screen bg-white flex justify-center items-center'>
+              <div className='animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-purple-800'></div>
+              <p className='ml-4 text-purple-800'>Loading...</p>
+            </div>
+          );
+    }
 
     // Display the services once data is fetched
     return (

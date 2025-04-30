@@ -26,7 +26,7 @@ const Banner = () => {
           <p className="text-center md:text-start">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Purus commodo ipsum duis laoreet maecenas. Feugiat 
           </p>
-          <Link to="/allArtCraft">
+          <Link to="/apoinment">
             <button className=" bg-[#F63E7B] px-4 py-2 hover:scale-110 cursor-pointer transition-all rounded-sm text-white ">
               Get an Appointment
             </button>

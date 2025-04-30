@@ -6,12 +6,13 @@ const Main = () => {
     console.log(location);
     const isLoginPage = location.pathname.includes('login');
     const isRegistrationpage = location.pathname.includes('registration');
+    const isAppoinmentPage = location.pathname.includes('apoinment')
 
     return (
         <div>
-            {!isLoginPage && <Navbar></Navbar>}
+            {!(isLoginPage || isAppoinmentPage) && <Navbar></Navbar>}
             <Outlet></Outlet>
-            {!(isLoginPage || isRegistrationpage) && <Footer></Footer>}
+            {!(isLoginPage || isRegistrationpage || isAppoinmentPage) && <Footer></Footer>}
         </div>
     );
 };

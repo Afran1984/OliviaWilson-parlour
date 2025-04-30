@@ -1,4 +1,23 @@
+import { useEffect, useState } from "react";
+
 const Herosection = () => {
+  const [user, setUsers] = useState([]);
+  const [Services, setServices] = useState([]);
+
+  console.log('user', user);
+
+  useEffect(() =>{
+    fetch("http://localhost:5000/usersInfo")
+    .then(res => res.json())
+    .then(data => setUsers(data))
+  },[]);
+
+  useEffect(() => {
+    fetch("http://localhost:5000/services")
+    .then(res => res.json())
+    .then(data => setServices(data))
+  },[]);
+
     return (
         <div className="flex flex-col md:flex-row items-center justify-between bg-pink-50 p-8 mt-5">
       {/* Image Section */}
@@ -24,11 +43,11 @@ const Herosection = () => {
         {/* Stats Section */}
         <div className="flex justify-center md:justify-start gap-8 mt-6">
           <div className="text-center">
-            <h2 className="text-2xl font-bold text-pink-500">500+</h2>
+            <h2 className="text-2xl font-bold text-pink-500">{user.length}+</h2>
             <p className="text-gray-600 text-sm">Happy Customer</p>
           </div>
           <div className="text-center">
-            <h2 className="text-2xl font-bold text-pink-500">16+</h2>
+            <h2 className="text-2xl font-bold text-pink-500">{Services.length}+</h2>
             <p className="text-gray-600 text-sm">Total Service</p>
           </div>
         </div>
